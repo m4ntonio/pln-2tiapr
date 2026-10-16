@@ -1,0 +1,402 @@
+{
+  "metadados": {
+    "projeto": "Challenge Motiva - Agente de Voz Rodoviário",
+    "disciplina": "Processamento de Linguagem Natural, Chatbots & Agentes Virtuais",
+    "sprint": 1,
+    "autores": [
+      {"nome": "Mario Antonio Oliveira", "rm": "567713"},
+      {"nome": "Vinicius Augusto Silva", "rm": "566830"}
+    ],
+    "total_user_stories_originais": 40,
+    "cobertura_user_stories_percentual": 100.0,
+    "total_intencoes_canonicas": 27,
+    "total_entidades_operacionais": 9
+  },
+  "esquema_entidades": {
+    "tag_ocorrencia": {
+      "tipo_dado": "string",
+      "formato_canonico": "TAG-XXXX ou OC-XXXXX",
+      "descricao": "Identificador único ou código alfa-numérico da ocorrência ou registro operacional.",
+      "exemplo_fala": "ocorrência oitenta e nove quarenta e um",
+      "exemplo_canonico": "OC-8941",
+      "regra_normalizacao": "Expressão regular para identificar prefixos 'tag', 'ocorrência', 'registro' seguidos de dígitos ou códigos alfanuméricos padronizados."
+    },
+    "km": {
+      "tipo_dado": "float",
+      "formato_canonico": "0.0",
+      "descricao": "Quilometragem exata do marco rodoviário onde se localiza o evento ou veículo.",
+      "exemplo_fala": "km cento e vinte e três e meio",
+      "exemplo_canonico": 123.5,
+      "regra_normalizacao": "Parser numérico textual convertendo centenas, dezenas, unidades e frações ('e meio' = +0.5, 'ponto dois' = +0.2) para número de ponto flutuante."
+    },
+    "sentido": {
+      "tipo_dado": "string",
+      "formato_canonico": "capital | interior | norte | sul | leste | oeste",
+      "descricao": "Sentido de fluxo de tráfego da rodovia no trecho da ocorrência.",
+      "exemplo_fala": "sentido capital",
+      "exemplo_canonico": "capital",
+      "regra_normalizacao": "Mapeamento semântico direto de jargões rodoviários ('indo pra capital' -> 'capital', 'subindo sentido norte' -> 'norte')."
+    },
+    "faixa": {
+      "tipo_dado": "string",
+      "formato_canonico": "faixa_1 | faixa_2 | faixa_3 | acostamento | canteiro_central | refúgio",
+      "descricao": "Faixa de rolamento ou elemento transversal da pista onde está situada a ocorrência.",
+      "exemplo_fala": "acostamento da direita",
+      "exemplo_canonico": "acostamento",
+      "regra_normalizacao": "Mapeamento determinístico de expressões coloquiais ('faixa da esquerda' -> 'faixa_1', 'faixa do meio' -> 'faixa_2', 'acostamento' -> 'acostamento')."
+    },
+    "tipo_ocorrencia": {
+      "tipo_dado": "string",
+      "formato_canonico": "colisao_traseira | choque_barreira | capotamento | atropelamento | pane_mecanica | pane_eletrica | pneu_furado | animal_na_pista | objeto_na_pista | oleo_na_pista",
+      "descricao": "Classificação operacional do tipo de incidente ou evento verificado na rodovia.",
+      "exemplo_fala": "bateu na traseira do caminhão",
+      "exemplo_canonico": "colisao_traseira",
+      "regra_normalizacao": "Dicionário de sinonímias operacionais e jargões rodoviários ('batida', 'sinistro', 'abalroamento' -> 'colisao_*')."
+    },
+    "recurso": {
+      "tipo_dado": "string",
+      "formato_canonico": "viatura_inspecao | guincho_leve | guincho_pesado | ambulancia_aph | caminhao_pipa | policia_rodoviaria | equipe_conserva",
+      "descricao": "Tipo de viatura ou recurso operacional acionado ou solicitado para apoio.",
+      "exemplo_fala": "manda um p um pesado",
+      "exemplo_canonico": "guincho_pesado",
+      "regra_normalizacao": "Conversão de códigos operacionais de rádio ('P1 pesado' -> 'guincho_pesado', 'P1 leve' -> 'guincho_leve', 'resgate' -> 'ambulancia_aph')."
+    },
+    "status": {
+      "tipo_dado": "string",
+      "formato_canonico": "deslocamento | no_local | em_atendimento | remocao_iniciada | faixa_liberada | concluido | cancelado",
+      "descricao": "Estado atual do atendimento, da missão ou da condição da pista.",
+      "exemplo_fala": "cheguei no local agora",
+      "exemplo_canonico": "no_local",
+      "regra_normalizacao": "Classificação de gatilhos verbais operacionais ('a caminho' -> 'deslocamento', 'pista limpa' -> 'faixa_liberada', 'finalizado' -> 'concluido')."
+    },
+    "horario": {
+      "tipo_dado": "string",
+      "formato_canonico": "HH:MM",
+      "descricao": "Horário de registro ou de marco temporal operacional (chegada, acionamento, liberação).",
+      "exemplo_fala": "às catorze horas e trinta e cinco minutos",
+      "exemplo_canonico": "14:35",
+      "regra_normalizacao": "Parser cronológico convertendo fala natural para notação padrão militar de 24 horas (HH:MM)."
+    },
+    "condicao_observada": {
+      "tipo_dado": "string",
+      "formato_canonico": "pista_seca | pista_molhada | neblina_densa | chuva_forte | oleo_derramado | engarrafamento | visibilidade_reduzida",
+      "descricao": "Condição ambiental, climática ou de superfície da via observada no local.",
+      "exemplo_fala": "muita neblina e pista escorregadia",
+      "exemplo_canonico": "neblina_densa",
+      "regra_normalizacao": "Casamento com vocabulário controlado de condições meteorológicas e de pavimento."
+    }
+  },
+  "intencoes": [
+    {
+      "id": "INT_01",
+      "nome": "registrar_ocorrencia",
+      "descricao": "Registrar a abertura de uma nova ocorrência ou incidente rodoviário no trecho patrulhado.",
+      "personas_autorizadas": ["inspecao_trafego"],
+      "criticidade": "alta",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P1_US1", "persona": "inspecao_trafego", "acao": "Registrar ocorrência", "resumo": "Registrar ocorrência por comando de voz para manter atenção na rodovia."}
+      ]
+    },
+    {
+      "id": "INT_02",
+      "nome": "consultar_procedimento",
+      "descricao": "Consultar procedimentos operacionais padrão ou protocolos clínicos e técnicos aplicáveis ao incidente.",
+      "personas_autorizadas": ["inspecao_trafego", "agente_aph"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P1_US2", "persona": "inspecao_trafego", "acao": "Consultar procedimento", "resumo": "Consultar por voz o procedimento operacional aplicável à ocorrência identificada."},
+        {"id": "P3_US1", "persona": "agente_aph", "acao": "Consultar protocolo aprovado", "resumo": "Localizar por voz protocolo institucional previamente aprovado aplicável à ocorrência."}
+      ]
+    },
+    {
+      "id": "INT_03",
+      "nome": "informar_localizacao_condicoes",
+      "descricao": "Transmitir dados operacionais estruturados de posicionamento (km, sentido, faixa), avarias e condições de pista.",
+      "personas_autorizadas": ["inspecao_trafego", "recurso_operacional"],
+      "criticidade": "media",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P1_US3", "persona": "inspecao_trafego", "acao": "Informar localização e condições", "resumo": "Informar verbalmente localização, sentido da via e condições observadas."},
+        {"id": "P2_US5", "persona": "recurso_operacional", "acao": "Relatar condições", "resumo": "Relatar condições do veículo, da carga e do local para complementar o registro."}
+      ]
+    },
+    {
+      "id": "INT_04",
+      "nome": "consultar_recursos",
+      "descricao": "Consultar disponibilidade, localização, tempo estimado e status dos recursos operacionais mobilizados ou em base.",
+      "personas_autorizadas": ["inspecao_trafego", "supervisor_operacoes", "coordenador_operacoes"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P1_US4", "persona": "inspecao_trafego", "acao": "Consultar recursos acionados", "resumo": "Consultar quais recursos foram acionados e seus status para organizar o local."},
+        {"id": "P4_US3", "persona": "supervisor_operacoes", "acao": "Localizar recursos", "resumo": "Consultar localização e status dos recursos disponíveis para orientar distribuição."},
+        {"id": "P5_US6", "persona": "coordenador_operacoes", "acao": "Consultar disponibilidade", "resumo": "Consultar disponibilidade e utilização dos recursos para planejamento de capacidade."}
+      ]
+    },
+    {
+      "id": "INT_05",
+      "nome": "atualizar_status",
+      "descricao": "Atualizar o status operacional da ocorrência, etapa do serviço de remoção ou estado de atendimento do recurso.",
+      "personas_autorizadas": ["inspecao_trafego", "recurso_operacional", "agente_aph"],
+      "criticidade": "media",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P1_US5", "persona": "inspecao_trafego", "acao": "Atualizar status", "resumo": "Atualizar por voz o status da ocorrência para manter sistemas integrados."},
+        {"id": "P2_US7", "persona": "recurso_operacional", "acao": "Atualizar etapas do serviço", "resumo": "Atualizar etapas do atendimento (início, remoção, destino, liberação da via)."},
+        {"id": "P3_US6", "persona": "agente_aph", "acao": "Atualizar status operacional", "resumo": "Atualizar status operacional do atendimento para informar evolução aos sistemas."}
+      ]
+    },
+    {
+      "id": "INT_06",
+      "nome": "solicitar_apoio",
+      "descricao": "Requisitar reforço ou acionamento imediato de viaturas de apoio, guinchos adicionais, resgate médico ou policiamento.",
+      "personas_autorizadas": ["inspecao_trafego", "recurso_operacional", "agente_aph"],
+      "criticidade": "alta",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P1_US6", "persona": "inspecao_trafego", "acao": "Solicitar apoio", "resumo": "Solicitar apoio operacional por voz para agilizar acionamento sem manuseio de tela."},
+        {"id": "P2_US6", "persona": "recurso_operacional", "acao": "Solicitar recurso adicional", "resumo": "Solicitar equipamento ou recurso adicional por voz em caso de capacidade insuficiente."},
+        {"id": "P3_US5", "persona": "agente_aph", "acao": "Solicitar apoio", "resumo": "Solicitar apoio ou recurso adicional por voz quando identificado pelo profissional."}
+      ]
+    },
+    {
+      "id": "INT_07",
+      "nome": "consultar_resumo_operacional",
+      "descricao": "Ouvir síntese ou panorama consolidado das ocorrências abertas no trecho, no turno ou no setor de rodovia.",
+      "personas_autorizadas": ["inspecao_trafego", "recurso_operacional", "supervisor_operacoes", "coordenador_operacoes"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P1_US7", "persona": "inspecao_trafego", "acao": "Ouvir resumo do trecho", "resumo": "Ouvir resumo das ocorrências abertas no trecho para priorizar deslocamento."},
+        {"id": "P2_US1", "persona": "recurso_operacional", "acao": "Receber resumo da missão", "resumo": "Ouvir resumo da ocorrência, localização e riscos informados antes da chegada."},
+        {"id": "P4_US1", "persona": "supervisor_operacoes", "acao": "Consultar panorama operacional", "resumo": "Consultar por voz panorama de ocorrências, recursos e trechos críticos."},
+        {"id": "P5_US1", "persona": "coordenador_operacoes", "acao": "Consultar resumo executivo", "resumo": "Solicitar resumo executivo das ocorrências e recursos para compreender situação."}
+      ]
+    },
+    {
+      "id": "INT_08",
+      "nome": "encerrar_atendimento",
+      "descricao": "Finalizar formally o atendimento no local com relato de ações executadas, providências tomadas e liberação da rodovia.",
+      "personas_autorizadas": ["inspecao_trafego", "recurso_operacional"],
+      "criticidade": "alta",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P1_US8", "persona": "inspecao_trafego", "acao": "Encerrar atendimento", "resumo": "Encerrar atividade por voz descrevendo providências adotadas para rastreabilidade."},
+        {"id": "P2_US8", "persona": "recurso_operacional", "acao": "Finalizar missão", "resumo": "Finalizar missão com relato verbal das ações para histórico estruturado."}
+      ]
+    },
+    {
+      "id": "INT_09",
+      "nome": "confirmar_missao",
+      "descricao": "Confirmar o recebimento e aceitação de uma missão despachada pelo CCO pelo recurso operacional.",
+      "personas_autorizadas": ["recurso_operacional"],
+      "criticidade": "media",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P2_US2", "persona": "recurso_operacional", "acao": "Confirmar recebimento", "resumo": "Confirmar por voz recebimento da missão para atualizar status de atendimento."}
+      ]
+    },
+    {
+      "id": "INT_10",
+      "nome": "consultar_rota_acesso",
+      "descricao": "Consultar melhor trajeto, sentido de pista e ponto de acesso ou retorno operacional para atendimento rápido.",
+      "personas_autorizadas": ["recurso_operacional"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P2_US3", "persona": "recurso_operacional", "acao": "Consultar rota e acesso", "resumo": "Consultar rota, sentido e melhor ponto de acesso para reduzir tempo de chegada."}
+      ]
+    },
+    {
+      "id": "INT_11",
+      "nome": "registrar_marco_temporal",
+      "descricao": "Registrar carimbo de data e hora de eventos operacionais críticos (chegada no local, início de atendimento, liberação).",
+      "personas_autorizadas": ["recurso_operacional", "agente_aph"],
+      "criticidade": "media",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P2_US4", "persona": "recurso_operacional", "acao": "Registrar chegada", "resumo": "Registrar chegada por comando de voz para atualizar linha do tempo sem digitação."},
+        {"id": "P3_US3", "persona": "agente_aph", "acao": "Marcar horários relevantes", "resumo": "Registrar horários dos principais marcos para manter linha do tempo confiável."}
+      ]
+    },
+    {
+      "id": "INT_12",
+      "nome": "registrar_dados_atendimento",
+      "descricao": "Registrar observações operacionais e assistenciais de campo durante o atendimento a vítimas.",
+      "personas_autorizadas": ["agente_aph"],
+      "criticidade": "alta",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P3_US2", "persona": "agente_aph", "acao": "Registrar dados do atendimento", "resumo": "Registrar por voz informações operacionais e assistenciais para reduzir digitação."}
+      ]
+    },
+    {
+      "id": "INT_13",
+      "nome": "consultar_dados_ocorrencia",
+      "descricao": "Consultar detalhes prévios da ocorrência (localização, riscos sinalizados, dinâmica do acidente) antes de iniciar abordagem.",
+      "personas_autorizadas": ["agente_aph"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P3_US4", "persona": "agente_aph", "acao": "Consultar dados da ocorrência", "resumo": "Consultar localização, acesso, riscos e recursos acionados para preparar chegada."}
+      ]
+    },
+    {
+      "id": "INT_14",
+      "nome": "verificar_pendencias",
+      "descricao": "Solicitar conferência de campos obrigatórios não preenchidos antes da conclusão do boletim.",
+      "personas_autorizadas": ["agente_aph"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P3_US7", "persona": "agente_aph", "acao": "Verificar campos pendentes", "resumo": "Receber alertas sobre informações obrigatórias ainda não registradas no relatório."}
+      ]
+    },
+    {
+      "id": "INT_15",
+      "nome": "gerar_resumo_validacao",
+      "descricao": "Gerar síntese estruturada dos dados ditados para conferência verbal antes do envio definitivo ao sistema.",
+      "personas_autorizadas": ["agente_aph"],
+      "criticidade": "media",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P3_US8", "persona": "agente_aph", "acao": "Gerar resumo para validação", "resumo": "Gerar resumo estruturado das informações ditadas para revisar antes do envio."}
+      ]
+    },
+    {
+      "id": "INT_16",
+      "nome": "priorizar_atendimentos",
+      "descricao": "Identificar e ordenar ocorrências ativas por severidade, criticidade e tempo de espera na fila.",
+      "personas_autorizadas": ["supervisor_operacoes"],
+      "criticidade": "alta",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P4_US2", "persona": "supervisor_operacoes", "acao": "Priorizar atendimentos", "resumo": "Identificar ocorrências por criticidade e espera para priorizar atendimentos imediatos."}
+      ]
+    },
+    {
+      "id": "INT_17",
+      "nome": "acompanhar_tempos",
+      "descricao": "Consultar métricas de SLA e tempos de ciclo (TME - tempo médio de espera, acionamento, chegada e atendimento).",
+      "personas_autorizadas": ["supervisor_operacoes"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P4_US4", "persona": "supervisor_operacoes", "acao": "Acompanhar tempos", "resumo": "Consultar tempos de acionamento, chegada e atendimento para identificar atrasos."}
+      ]
+    },
+    {
+      "id": "INT_18",
+      "nome": "receber_alertas",
+      "descricao": "Consultar notificações ativas de ocorrências críticas, estouros de prazo de SLA ou bloqueios totais de pista.",
+      "personas_autorizadas": ["supervisor_operacoes"],
+      "criticidade": "alta",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P4_US5", "persona": "supervisor_operacoes", "acao": "Receber alertas de exceção", "resumo": "Receber alertas por voz sobre ocorrências críticas ou fora do prazo para intervir."}
+      ]
+    },
+    {
+      "id": "INT_19",
+      "nome": "consultar_historico",
+      "descricao": "Consultar histórico de intervenções, decisões tomadas ou logs de uma ocorrência ou veículo específico.",
+      "personas_autorizadas": ["supervisor_operacoes"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P4_US6", "persona": "supervisor_operacoes", "acao": "Consultar histórico", "resumo": "Consultar histórico de ocorrência ou recurso para compreender decisões já registradas."}
+      ]
+    },
+    {
+      "id": "INT_20",
+      "nome": "validar_registros",
+      "descricao": "Aprovar ou sinalizar conformidade de boletins e registros submetidos pelas equipes de campo.",
+      "personas_autorizadas": ["supervisor_operacoes"],
+      "criticidade": "media",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P4_US7", "persona": "supervisor_operacoes", "acao": "Validar registros", "resumo": "Revisar e validar registros sinalizados como incompletos ou inconsistentes."}
+      ]
+    },
+    {
+      "id": "INT_21",
+      "nome": "gerar_passagem_turno",
+      "descricao": "Compilar pendências, recursos alocados e riscos em andamento para troca de turno de supervisão.",
+      "personas_autorizadas": ["supervisor_operacoes"],
+      "criticidade": "media",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P4_US8", "persona": "supervisor_operacoes", "acao": "Gerar passagem de turno", "resumo": "Gerar resumo de passagem de turno por voz para transferir pendências e riscos."}
+      ]
+    },
+    {
+      "id": "INT_22",
+      "nome": "acompanhar_eventos_criticos",
+      "descricao": "Monitorar eventos de grande impacto na malha rodoviária (interdições totais, acidentes com múltiplas vítimas, cargas perigosas).",
+      "personas_autorizadas": ["coordenador_operacoes"],
+      "criticidade": "alta",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P5_US2", "persona": "coordenador_operacoes", "acao": "Acompanhar eventos críticos", "resumo": "Consultar eventos críticos em andamento e impactos para direcionar decisões e escalonamento."}
+      ]
+    },
+    {
+      "id": "INT_23",
+      "nome": "comparar_desempenho",
+      "descricao": "Consultar indicadores comparativos de desempenho operacional entre bases, trechos de concessão ou períodos.",
+      "personas_autorizadas": ["coordenador_operacoes"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P5_US3", "persona": "coordenador_operacoes", "acao": "Comparar desempenho", "resumo": "Comparar tempos e volumes por período, trecho ou equipe para identificar tendências."}
+      ]
+    },
+    {
+      "id": "INT_24",
+      "nome": "identificar_recorrencias",
+      "descricao": "Consultar pontos críticos de concentração de acidentes (pontos negros) ou panes recorrentes na rodovia.",
+      "personas_autorizadas": ["coordenador_operacoes"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P5_US4", "persona": "coordenador_operacoes", "acao": "Identificar recorrências", "resumo": "Consultar ocorrências recorrentes por local, tipo ou causa para ações preventivas."}
+      ]
+    },
+    {
+      "id": "INT_25",
+      "nome": "monitorar_conformidade",
+      "descricao": "Auditar aderência a procedimentos regulatórios da ARTESP/ANTT e conformidade de registros de campo.",
+      "personas_autorizadas": ["coordenador_operacoes"],
+      "criticidade": "media",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P5_US5", "persona": "coordenador_operacoes", "acao": "Monitorar conformidade", "resumo": "Visualizar desvios de procedimentos e registros incompletos para reforçar conformidade."}
+      ]
+    },
+    {
+      "id": "INT_26",
+      "nome": "gerar_sintese_gerencial",
+      "descricao": "Gerar relatório executivo resumido de turno ou período para alinhamento diretivo e comunicação institucional.",
+      "personas_autorizadas": ["coordenador_operacoes"],
+      "criticidade": "baixa",
+      "exige_confirmacao": false,
+      "user_stories_atendidas": [
+        {"id": "P5_US7", "persona": "coordenador_operacoes", "acao": "Gerar síntese gerencial", "resumo": "Gerar síntese gerencial de um período por voz para apoiar reuniões internas."}
+      ]
+    },
+    {
+      "id": "INT_27",
+      "nome": "registrar_direcionamento",
+      "descricao": "Emitir diretriz estratégica ou instrução operacional para equipes operacionais de campo com validação e rastreabilidade.",
+      "personas_autorizadas": ["coordenador_operacoes"],
+      "criticidade": "alta",
+      "exige_confirmacao": true,
+      "user_stories_atendidas": [
+        {"id": "P5_US8", "persona": "coordenador_operacoes", "acao": "Registrar direcionamento", "resumo": "Registrar direcionamento operacional por voz para documentar decisão e encaminhar aos responsáveis."}
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,154 @@
+{
+  "metadados": {
+    "projeto": "Glossário Rodoviário Operacional e Regras de Normalização ASR",
+    "disciplina": "Processamento de Linguagem Natural, Chatbots & Agentes Virtuais",
+    "contexto": "Operação de Rodovias Concedidas (Challenge Motiva / CCR)",
+    "versao": "1.0",
+    "autores": ["Mario Antonio Oliveira", "Vinicius Augusto Silva"]
+  },
+  "jargao_operacional": [
+    {
+      "termo_canonico": "P1",
+      "categoria": "recurso",
+      "significado": "Viatura de guincho da concessionária (leve ou pesado) destinada à remoção de veículos avariados ou acidentados.",
+      "variantes_faladas": ["p um", "pe um", "guincho p1", "recurso p1", "viatura p um"],
+      "exemplo_fala": "solicito apoio de um p um pesado aqui no acostamento",
+      "conversao_entidade": {"tipo": "recurso", "valor": "guincho_pesado"}
+    },
+    {
+      "termo_canonico": "CCO",
+      "categoria": "organizacao",
+      "significado": "Centro de Controle Operacional: central responsável pelo monitoramento das câmeras, despacho de viaturas e gestão da malha viária.",
+      "variantes_faladas": ["ce ce o", "seceu", "central", "controle operacional", "mesa do cco"],
+      "exemplo_fala": "avisa o ce ce o que a faixa dois tá liberada",
+      "conversao_entidade": null
+    },
+    {
+      "termo_canonico": "APH",
+      "categoria": "recurso",
+      "significado": "Atendimento Pré-Hospitalar: equipe médica de resgate da rodovia.",
+      "variantes_faladas": ["a p h", "a pe aga", "resgate", "ambulancia", "socorro medico", "viatura medica"],
+      "exemplo_fala": "preciso de a p h com urgência tem vítima presa",
+      "conversao_entidade": {"tipo": "recurso", "valor": "ambulancia_aph"}
+    },
+    {
+      "termo_canonico": "Inspecao de Trafego",
+      "categoria": "recurso",
+      "significado": "Viatura operacional leve que patrulha continuamente a rodovia para identificar incidentes, prestar primeiros atendimentos e sinalizar a via.",
+      "variantes_faladas": ["inspecao", "viatura de inspecao", "carro de inspecao", "patrulha"],
+      "exemplo_fala": "aqui é a inspeção zero quatro no trecho",
+      "conversao_entidade": {"tipo": "recurso", "valor": "viatura_inspecao"}
+    },
+    {
+      "termo_canonico": "Sinistro vs Acidente",
+      "categoria": "classificacao_tecnica",
+      "significado": "Conforme a norma ABNT NBR 10697, adota-se 'sinistro de trânsito' para eventos com danos materiais ou vítimas, superando o termo informal 'acidente'.",
+      "variantes_faladas": ["sinistro", "acidente", "batida", "abalroamento", "colisao"],
+      "exemplo_fala": "registra um sinistro grave aqui no km cem",
+      "conversao_entidade": {"tipo": "tipo_ocorrencia", "valor": "colisao_traseira"}
+    },
+    {
+      "termo_canonico": "Choque vs Colisao",
+      "categoria": "classificacao_tecnica",
+      "significado": "Colisão envolve dois ou mais veículos em movimento; Choque é o impacto de um veículo contra obstáculo fixo (barreira, mureta, árvore ou defensa metálica).",
+      "variantes_faladas": ["bateu na mureta", "bateu na barreira", "bateu no poste", "choque com defensa"],
+      "exemplo_fala": "foi um choque na barreira de concreto",
+      "conversao_entidade": {"tipo": "tipo_ocorrencia", "valor": "choque_barreira"}
+    },
+    {
+      "termo_canonico": "Acostamento",
+      "categoria": "faixa",
+      "significado": "Espaço lateral pavimentado destinado à parada de emergência e trânsito exclusivo de viaturas de serviço.",
+      "variantes_faladas": ["acostamento", "faixa de escape", "beira da pista", "costamento"],
+      "exemplo_fala": "veiculo parado no acostamento",
+      "conversao_entidade": {"tipo": "faixa", "valor": "acostamento"}
+    },
+    {
+      "termo_canonico": "Faixa 1 (Faixa da Esquerda)",
+      "categoria": "faixa",
+      "significado": "Faixa de rolamento mais à esquerda da pista, reservada à ultrapassagem e maior velocidade.",
+      "variantes_faladas": ["faixa um", "faixa da esquerda", "faixa rápida"],
+      "exemplo_fala": "bloqueio da faixa um",
+      "conversao_entidade": {"tipo": "faixa", "valor": "faixa_1"}
+    },
+    {
+      "termo_canonico": "Faixa 2 (Faixa Central / Direita)",
+      "categoria": "faixa",
+      "significado": "Faixa de rolamento intermediária ou à direita em pista de pista dupla.",
+      "variantes_faladas": ["faixa dois", "faixa do meio", "faixa da direita"],
+      "exemplo_fala": "faixa dois desobstruída",
+      "conversao_entidade": {"tipo": "faixa", "valor": "faixa_2"}
+    },
+    {
+      "termo_canonico": "Sentido Capital / Interior",
+      "categoria": "sentido",
+      "significado": "Convenção operacional de orientação geográfica das rodovias radiais e longitudinais brasileiras.",
+      "variantes_faladas": ["sentido capital", "sentido interior", "indo pra capital", "indo pro interior", "pista norte", "pista sul"],
+      "exemplo_fala": "pista norte sentido interior",
+      "conversao_entidade": {"tipo": "sentido", "valor": "interior"}
+    },
+    {
+      "termo_canonico": "TME e TMA",
+      "categoria": "metricas",
+      "significado": "Tempo Médio de Espera (tempo até a chegada do recurso) e Tempo Médio de Atendimento (duração da operação no local).",
+      "variantes_faladas": ["t m e", "t m a", "tempo de espera", "tempo de atendimento", "sla"],
+      "exemplo_fala": "qual o t m e estimado pro guincho",
+      "conversao_entidade": null
+    },
+    {
+      "termo_canonico": "Ponto Negro / Ponto Critico",
+      "categoria": "gestao",
+      "significado": "Segmento de rodovia com alta densidade histórica de acidentes graves.",
+      "variantes_faladas": ["ponto negro", "trecho critico", "curva perigosa", "zona de recorrencia"],
+      "exemplo_fala": "identificar recorrencias no ponto negro do trecho",
+      "conversao_entidade": null
+    }
+  ],
+  "regras_correcao_erros_asr": [
+    {
+      "padrao_erro_asr": "\\b(p\\s*um|pe\\s*um|p-1)\\b",
+      "substituicao": "P1",
+      "justificativa": "Whisper transcreve códigos de rádio alfa-numéricos como palavras separadas."
+    },
+    {
+      "padrao_erro_asr": "\\b(ce\\s*ce\\s*o|seceu|c\\s*c\\s*o)\\b",
+      "substituicao": "CCO",
+      "justificativa": "Sigla de Centro de Controle Operacional falada soletrada ou com elisão vocal."
+    },
+    {
+      "padrao_erro_asr": "\\b(a\\s*p\\s*h|a\\s*pe\\s*aga|agafe)\\b",
+      "substituicao": "APH",
+      "justificativa": "Sigla de Atendimento Pré-Hospitalar frequentemente corrompida por modelos acústicos."
+    },
+    {
+      "padrao_erro_asr": "\\b(ca\\s*eme|quil[oô]metro[s]?)\\b",
+      "substituicao": "km",
+      "justificativa": "Padronização de unidades métricas de posicionamento rodoviário."
+    },
+    {
+      "padrao_erro_asr": "\\b(costamento|apostamento)\\b",
+      "substituicao": "acostamento",
+      "justificativa": "Erro de fonética do ASR sob ruído acústico de vento e caminhão."
+    },
+    {
+      "padrao_erro_asr": "\\b(ministro)\\b(?=.*(?:tr[âa]nsito|rodovia|pista|colis[ãa]o))",
+      "substituicao": "sinistro",
+      "justificativa": "Confusão fonética clássica de 'sinistro' com a palavra mais comum 'ministro'."
+    },
+    {
+      "padrao_erro_asr": "\\b(choc|choque\\s+com)\\b",
+      "substituicao": "choque contra",
+      "justificativa": "Normalização de terminologia de choque contra anteparo fixo."
+    }
+  ],
+  "marcadores_hesitacao_ruido": [
+    "\\b[eé]{2,}\\b",
+    "\\b[ãa]h+\\b",
+    "\\bh[u|a]m+\\b",
+    "\\bt[áa]\\b(?=\\s*,?\\s*ent[ãa]o)",
+    "\\b[o|e]pa\\b",
+    "\\bperai\\b",
+    "\\b[eé]h\\b"
+  ]
+}
+

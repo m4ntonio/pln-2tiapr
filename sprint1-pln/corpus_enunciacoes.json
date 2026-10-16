@@ -1,0 +1,1409 @@
+[
+  {
+    "id": "enu_0001",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "é registra aí uma ocorrencia no km cento e vinte e tres e meio sentido capital",
+    "texto_normalizado": "registrar ocorrência no km 123.5 sentido capital",
+    "intencao": "registrar_ocorrencia",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 123.5,
+        "span": [
+          27,
+          32
+        ]
+      },
+      {
+        "tipo": "sentido",
+        "valor": "capital",
+        "span": [
+          41,
+          48
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0002",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "qual o procedimento operacional pra produto quimico derramado na pista",
+    "texto_normalizado": "consultar procedimento operacional produto químico derramado na pista",
+    "intencao": "consultar_procedimento",
+    "entidades": [
+      {
+        "tipo": "condicao_observada",
+        "valor": "oleo_derramado",
+        "span": [
+          35,
+          60
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0003",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "to no km quarenta e dois sentido interior faixa dois pista molhada e neblina",
+    "texto_normalizado": "informar localização km 42.0 sentido interior faixa_2 condição pista molhada e neblina densa",
+    "intencao": "informar_localizacao_condicoes",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 42.0,
+        "span": [
+          24,
+          28
+        ]
+      },
+      {
+        "tipo": "sentido",
+        "valor": "interior",
+        "span": [
+          37,
+          45
+        ]
+      },
+      {
+        "tipo": "faixa",
+        "valor": "faixa_2",
+        "span": [
+          46,
+          53
+        ]
+      },
+      {
+        "tipo": "condicao_observada",
+        "valor": "pista_molhada",
+        "span": [
+          63,
+          76
+        ]
+      },
+      {
+        "tipo": "condicao_observada",
+        "valor": "neblina_densa",
+        "span": [
+          79,
+          92
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0004",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "quais viaturas de apoio foram acionadas pra essa ocorrencia",
+    "texto_normalizado": "consultar recursos acionados para a ocorrência",
+    "intencao": "consultar_recursos",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0005",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "atualiza o status da ocorrencia pra faixa liberada agora",
+    "texto_normalizado": "atualizar status ocorrência para faixa_liberada",
+    "intencao": "atualizar_status",
+    "entidades": [
+      {
+        "tipo": "status",
+        "valor": "faixa_liberada",
+        "span": [
+          33,
+          47
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0006",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "solicito apoio urgente de um p um pesado e uma ambulancia aqui",
+    "texto_normalizado": "solicitar apoio guincho_pesado e ambulancia_aph",
+    "intencao": "solicitar_apoio",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "guincho_pesado",
+        "span": [
+          16,
+          30
+        ]
+      },
+      {
+        "tipo": "recurso",
+        "valor": "ambulancia_aph",
+        "span": [
+          33,
+          47
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0007",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "le pra mim o resumo das ocorrencias abertas no meu trecho de ronda",
+    "texto_normalizado": "consultar resumo operacional das ocorrências no trecho",
+    "intencao": "consultar_resumo_operacional",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0008",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "encerrando atendimento no km oitenta e oito veiculo removido pista segura",
+    "texto_normalizado": "encerrar atendimento no km 88.0 pista liberada",
+    "intencao": "encerrar_atendimento",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 88.0,
+        "span": [
+          27,
+          31
+        ]
+      },
+      {
+        "tipo": "status",
+        "valor": "faixa_liberada",
+        "span": [
+          0,
+          14
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0009",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "registra colisao traseira de dois automoveis no acostamento km quinze sentido sul",
+    "texto_normalizado": "registrar ocorrência de colisao_traseira no acostamento km 15.0 sentido sul",
+    "intencao": "registrar_ocorrencia",
+    "entidades": [
+      {
+        "tipo": "tipo_ocorrencia",
+        "valor": "colisao_traseira",
+        "span": [
+          24,
+          40
+        ]
+      },
+      {
+        "tipo": "faixa",
+        "valor": "acostamento",
+        "span": [
+          44,
+          55
+        ]
+      },
+      {
+        "tipo": "km",
+        "valor": 15.0,
+        "span": [
+          59,
+          63
+        ]
+      },
+      {
+        "tipo": "sentido",
+        "valor": "sul",
+        "span": [
+          72,
+          75
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0010",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "preciso da policia rodoviaria com brevidade motorista agressivo no local",
+    "texto_normalizado": "solicitar apoio policia_rodoviaria no local",
+    "intencao": "solicitar_apoio",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "policia_rodoviaria",
+        "span": [
+          16,
+          34
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0011",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "como proceder em caso de animal de grande porte na pista",
+    "texto_normalizado": "consultar procedimento animal_na_pista",
+    "intencao": "consultar_procedimento",
+    "entidades": [
+      {
+        "tipo": "tipo_ocorrencia",
+        "valor": "animal_na_pista",
+        "span": [
+          23,
+          38
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0012",
+    "persona": "inspecao_trafego",
+    "transcricao_bruta": "atualiza status da tag oc dois mil e vinte e seis zero um para em atendimento",
+    "texto_normalizado": "atualizar status da ocorrência OC-2026-01 para em_atendimento",
+    "intencao": "atualizar_status",
+    "entidades": [
+      {
+        "tipo": "tag_ocorrencia",
+        "valor": "OC-2026-01",
+        "span": [
+          31,
+          41
+        ]
+      },
+      {
+        "tipo": "status",
+        "valor": "em_atendimento",
+        "span": [
+          47,
+          61
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0013",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "me passa o resumo da missao do guincho leve e riscos do local",
+    "texto_normalizado": "consultar resumo operacional da missão e riscos",
+    "intencao": "consultar_resumo_operacional",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "guincho_leve",
+        "span": [
+          0,
+          12
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0014",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "confirmo o recebimento do chamado de remocao to partindo da base agora",
+    "texto_normalizado": "confirmar recebimento da missão de remoção status deslocamento",
+    "intencao": "confirmar_missao",
+    "entidades": [
+      {
+        "tipo": "status",
+        "valor": "deslocamento",
+        "span": [
+          50,
+          62
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 0.0
+  },
+  {
+    "id": "enu_0015",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "qual o melhor ponto de acesso e rota pro km setenta sentido norte",
+    "texto_normalizado": "consultar rota e acesso km 70.0 sentido norte",
+    "intencao": "consultar_rota_acesso",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 70.0,
+        "span": [
+          27,
+          31
+        ]
+      },
+      {
+        "tipo": "sentido",
+        "valor": "norte",
+        "span": [
+          40,
+          45
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0016",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "guincho p um pesado no local no km noventa e dois",
+    "texto_normalizado": "registrar marco temporal no_local km 92.0",
+    "intencao": "registrar_marco_temporal",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "guincho_pesado",
+        "span": [
+          0,
+          19
+        ]
+      },
+      {
+        "tipo": "status",
+        "valor": "no_local",
+        "span": [
+          25,
+          33
+        ]
+      },
+      {
+        "tipo": "km",
+        "valor": 92.0,
+        "span": [
+          37,
+          41
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0017",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "veiculo tombado com carga de soja espalhada na faixa um e dois",
+    "texto_normalizado": "informar condições veículo tombado carga espalhada na faixa_1 e faixa_2",
+    "intencao": "informar_localizacao_condicoes",
+    "entidades": [
+      {
+        "tipo": "faixa",
+        "valor": "faixa_1",
+        "span": [
+          54,
+          61
+        ]
+      },
+      {
+        "tipo": "faixa",
+        "valor": "faixa_2",
+        "span": [
+          64,
+          71
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0018",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "solicito caminhao pipa de apoio pra lavar o oleo da pista",
+    "texto_normalizado": "solicitar apoio caminhao_pipa para oleo_na_pista",
+    "intencao": "solicitar_apoio",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "caminhao_pipa",
+        "span": [
+          16,
+          29
+        ]
+      },
+      {
+        "tipo": "condicao_observada",
+        "valor": "oleo_derramado",
+        "span": [
+          35,
+          48
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0019",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "atualiza etapa do servico inicio da amarracao e remocao iniciada",
+    "texto_normalizado": "atualizar status da etapa para remocao_iniciada",
+    "intencao": "atualizar_status",
+    "entidades": [
+      {
+        "tipo": "status",
+        "valor": "remocao_iniciada",
+        "span": [
+          31,
+          47
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0020",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "finalizando missao veiculo entregue no patio de apoio e pista desobstruida",
+    "texto_normalizado": "encerrar atendimento missão finalizada faixa_liberada",
+    "intencao": "encerrar_atendimento",
+    "entidades": [
+      {
+        "tipo": "status",
+        "valor": "faixa_liberada",
+        "span": [
+          39,
+          53
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0021",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "chegada registrada no local do sinistro as dez horas e vinte minutos",
+    "texto_normalizado": "registrar marco temporal no_local às 10:20",
+    "intencao": "registrar_marco_temporal",
+    "entidades": [
+      {
+        "tipo": "status",
+        "valor": "no_local",
+        "span": [
+          25,
+          33
+        ]
+      },
+      {
+        "tipo": "horario",
+        "valor": "10:20",
+        "span": [
+          37,
+          42
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0022",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "avisa o cco que a capacidade do guincho leve nao comporta esse caminhao precisa do pesado",
+    "texto_normalizado": "solicitar apoio guincho_pesado para capacidade excedida",
+    "intencao": "solicitar_apoio",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "guincho_pesado",
+        "span": [
+          16,
+          30
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0023",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "retorno mais proximo pro sentido capital fica em qual quilometro",
+    "texto_normalizado": "consultar rota e acesso retorno sentido capital",
+    "intencao": "consultar_rota_acesso",
+    "entidades": [
+      {
+        "tipo": "sentido",
+        "valor": "capital",
+        "span": [
+          40,
+          47
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0024",
+    "persona": "recurso_operacional",
+    "transcricao_bruta": "atualiza status veiculo engatado saindo em deslocamento pro patio",
+    "texto_normalizado": "atualizar status para deslocamento até o pátio",
+    "intencao": "atualizar_status",
+    "entidades": [
+      {
+        "tipo": "status",
+        "valor": "deslocamento",
+        "span": [
+          22,
+          34
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0025",
+    "persona": "agente_aph",
+    "transcricao_bruta": "qual o protocolo aprovado para suspeita de trauma raquimedular em campo",
+    "texto_normalizado": "consultar procedimento protocolo institucional trauma raquimedular",
+    "intencao": "consultar_procedimento",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0026",
+    "persona": "agente_aph",
+    "transcricao_bruta": "registra dados vitais vitima estavel glasgow quinze pressao doze por oito",
+    "texto_normalizado": "registrar dados de atendimento clínico vítima consciente",
+    "intencao": "registrar_dados_atendimento",
+    "entidades": [],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0027",
+    "persona": "agente_aph",
+    "transcricao_bruta": "marca horario de saida da ambulancia as quinze horas e quarenta minutos",
+    "texto_normalizado": "registrar marco temporal saída ambulancia_aph às 15:40",
+    "intencao": "registrar_marco_temporal",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "ambulancia_aph",
+        "span": [
+          31,
+          45
+        ]
+      },
+      {
+        "tipo": "horario",
+        "valor": "15:40",
+        "span": [
+          49,
+          54
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0028",
+    "persona": "agente_aph",
+    "transcricao_bruta": "consulta dados da ocorrencia no km duzentos e dez quantas vitimas reportadas",
+    "texto_normalizado": "consultar dados da ocorrência km 210.0",
+    "intencao": "consultar_dados_ocorrencia",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 210.0,
+        "span": [
+          33,
+          38
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 0.0
+  },
+  {
+    "id": "enu_0029",
+    "persona": "agente_aph",
+    "transcricao_bruta": "solicito apoio da viatura avancada usa e bombeiros com desencarcerador",
+    "texto_normalizado": "solicitar apoio viatura avançada bombeiros",
+    "intencao": "solicitar_apoio",
+    "entidades": [],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0030",
+    "persona": "agente_aph",
+    "transcricao_bruta": "atualiza status operacional para em atendimento no canteiro central",
+    "texto_normalizado": "atualizar status operacional para em_atendimento canteiro_central",
+    "intencao": "atualizar_status",
+    "entidades": [
+      {
+        "tipo": "status",
+        "valor": "em_atendimento",
+        "span": [
+          34,
+          48
+        ]
+      },
+      {
+        "tipo": "faixa",
+        "valor": "canteiro_central",
+        "span": [
+          49,
+          65
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0031",
+    "persona": "agente_aph",
+    "transcricao_bruta": "tem algum campo pendente de preenchimento obrigatorio na ficha medica",
+    "texto_normalizado": "verificar campos pendentes na ficha médica",
+    "intencao": "verificar_pendencias",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0032",
+    "persona": "agente_aph",
+    "transcricao_bruta": "gera o resumo estruturado das informacoes ditadas pra eu conferir antes do envio",
+    "texto_normalizado": "gerar resumo de validação dos dados ditados",
+    "intencao": "gerar_resumo_validacao",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0033",
+    "persona": "agente_aph",
+    "transcricao_bruta": "marca horario de chegada no pronto socorro as dezesseis horas e dez",
+    "texto_normalizado": "registrar marco temporal chegada hospital às 16:10",
+    "intencao": "registrar_marco_temporal",
+    "entidades": [
+      {
+        "tipo": "horario",
+        "valor": "16:10",
+        "span": [
+          45,
+          50
+        ]
+      },
+      {
+        "tipo": "status",
+        "valor": "concluido",
+        "span": [
+          0,
+          9
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0034",
+    "persona": "agente_aph",
+    "transcricao_bruta": "registra paciente encaminhado para hospital regional sem queixas graves",
+    "texto_normalizado": "registrar dados de atendimento paciente encaminhado hospital",
+    "intencao": "registrar_dados_atendimento",
+    "entidades": [],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 0.0
+  },
+  {
+    "id": "enu_0035",
+    "persona": "agente_aph",
+    "transcricao_bruta": "consulta se o hospital de referencia ta com vaga para trauma",
+    "texto_normalizado": "consultar procedimento vaga hospitalar trauma",
+    "intencao": "consultar_procedimento",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0036",
+    "persona": "agente_aph",
+    "transcricao_bruta": "atualiza status da ambulancia para deslocamento retorno a base",
+    "texto_normalizado": "atualizar status ambulancia_aph para deslocamento retorno base",
+    "intencao": "atualizar_status",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "ambulancia_aph",
+        "span": [
+          17,
+          31
+        ]
+      },
+      {
+        "tipo": "status",
+        "valor": "deslocamento",
+        "span": [
+          37,
+          49
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0037",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "me da um panorama operacional de todas ocorrencias criticas abertas",
+    "texto_normalizado": "consultar panorama operacional ocorrências críticas",
+    "intencao": "consultar_resumo_operacional",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0038",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "prioriza os atendimentos da fila por tempo de espera e gravidade",
+    "texto_normalizado": "priorizar atendimentos fila por severidade e espera",
+    "intencao": "priorizar_atendimentos",
+    "entidades": [],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0039",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "onde estao localizados os guinchos pesados disponiveis no trecho leste",
+    "texto_normalizado": "consultar recursos guincho_pesado disponíveis sentido leste",
+    "intencao": "consultar_recursos",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "guincho_pesado",
+        "span": [
+          19,
+          33
+        ]
+      },
+      {
+        "tipo": "sentido",
+        "valor": "leste",
+        "span": [
+          54,
+          59
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0040",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "como estao os tempos medios de atendimento e chegada do resgate hoje",
+    "texto_normalizado": "acompanhar tempos médios de resposta e chegada ambulancia_aph",
+    "intencao": "acompanhar_tempos",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "ambulancia_aph",
+        "span": [
+          47,
+          61
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0041",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "teve algum alerta de excecao ou estouro de sla nos ultimos trinta minutos",
+    "texto_normalizado": "receber alertas de exceção estouro de SLA",
+    "intencao": "receber_alertas",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0042",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "qual o historico de intervencoes na ocorrencia oc oitenta e nove quarenta",
+    "texto_normalizado": "consultar histórico intervenções ocorrência OC-8940",
+    "intencao": "consultar_historico",
+    "entidades": [
+      {
+        "tipo": "tag_ocorrencia",
+        "valor": "OC-8940",
+        "span": [
+          44,
+          51
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0043",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "valida o registro de fechamento da inspecao zero dois que tava com pendencia",
+    "texto_normalizado": "validar registros pendentes viatura_inspecao",
+    "intencao": "validar_registros",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "viatura_inspecao",
+        "span": [
+          28,
+          44
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0044",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "gerar resumo de passagem de turno com as pendencias operacionais do plantao",
+    "texto_normalizado": "gerar passagem de turno com pendências operacionais",
+    "intencao": "gerar_passagem_turno",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0045",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "quais ocorrencias estao com tempo de espera acima de vinte minutos",
+    "texto_normalizado": "priorizar atendimentos tempo de espera excedido",
+    "intencao": "priorizar_atendimentos",
+    "entidades": [],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 0.0
+  },
+  {
+    "id": "enu_0046",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "localiza viatura de inspecao mais proxima do km cinquenta sentido capital",
+    "texto_normalizado": "consultar recursos viatura_inspecao próxima ao km 50.0 sentido capital",
+    "intencao": "consultar_recursos",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "viatura_inspecao",
+        "span": [
+          19,
+          35
+        ]
+      },
+      {
+        "tipo": "km",
+        "valor": 50.0,
+        "span": [
+          50,
+          54
+        ]
+      },
+      {
+        "tipo": "sentido",
+        "valor": "capital",
+        "span": [
+          63,
+          70
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0047",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "revisar boletim operacional sinalizado com incoerencia de horario",
+    "texto_normalizado": "validar registros incoerentes de horários",
+    "intencao": "validar_registros",
+    "entidades": [],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0048",
+    "persona": "supervisor_operacoes",
+    "transcricao_bruta": "alerta para lentidao excessiva no pedagio km trinta e cinco",
+    "texto_normalizado": "receber alertas lentidão pedágio km 35.0",
+    "intencao": "receber_alertas",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 35.0,
+        "span": [
+          36,
+          40
+        ]
+      },
+      {
+        "tipo": "condicao_observada",
+        "valor": "engarrafamento",
+        "span": [
+          0,
+          14
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0049",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "solicito resumo executivo das ocorrencias e recursos mobilizados hoje",
+    "texto_normalizado": "consultar resumo operacional executivo do dia",
+    "intencao": "consultar_resumo_operacional",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0050",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "quais eventos criticos de grande porte estao em andamento na malha",
+    "texto_normalizado": "acompanhar eventos críticos em andamento na rodovia",
+    "intencao": "acompanhar_eventos_criticos",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0051",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "comparar desempenho operacional do trecho norte com o trecho sul neste mes",
+    "texto_normalizado": "comparar desempenho trecho norte e sul",
+    "intencao": "comparar_desempenho",
+    "entidades": [
+      {
+        "tipo": "sentido",
+        "valor": "norte",
+        "span": [
+          27,
+          32
+        ]
+      },
+      {
+        "tipo": "sentido",
+        "valor": "sul",
+        "span": [
+          35,
+          38
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0052",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "identificar recorrencias de acidentes no km oitenta e cinco nos ultimos tres meses",
+    "texto_normalizado": "identificar recorrências de sinistros km 85.0",
+    "intencao": "identificar_recorrencias",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 85.0,
+        "span": [
+          41,
+          45
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0053",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "como ta o indice de conformidade de preenchimento dos boletins de ocorrencia",
+    "texto_normalizado": "monitorar conformidade dos registros de campo",
+    "intencao": "monitorar_conformidade",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0054",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "qual a taxa de utilizacao e disponibilidade da frota de guinchos pesados",
+    "texto_normalizado": "consultar recursos taxa de disponibilidade guincho_pesado",
+    "intencao": "consultar_recursos",
+    "entidades": [
+      {
+        "tipo": "recurso",
+        "valor": "guincho_pesado",
+        "span": [
+          43,
+          57
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0055",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "gerar sintese gerencial das operacoes do fim de semana para diretoria",
+    "texto_normalizado": "gerar síntese gerencial das operações de fim de semana",
+    "intencao": "gerar_sintese_gerencial",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0056",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "registrar direcionamento para reforco de patrulhamento no trecho sul no feriado",
+    "texto_normalizado": "registrar direcionamento operacional reforço patrulhamento trecho sul",
+    "intencao": "registrar_direcionamento",
+    "entidades": [
+      {
+        "tipo": "sentido",
+        "valor": "sul",
+        "span": [
+          66,
+          69
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0057",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "qual o impacto da interrupcao total da rodovia no km cento e dez",
+    "texto_normalizado": "acompanhar eventos críticos interdição total km 110.0",
+    "intencao": "acompanhar_eventos_criticos",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 110.0,
+        "span": [
+          48,
+          53
+        ]
+      }
+    ],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 0.0
+  },
+  {
+    "id": "enu_0058",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "apresentar relatorio de desvios regulatorios apontados pela artesp",
+    "texto_normalizado": "monitorar conformidade regulatória ARTESP",
+    "intencao": "monitorar_conformidade",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0059",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "quais pontos negros apresentaram reducao de sinistros apos nova sinalizacao",
+    "texto_normalizado": "identificar recorrências sinistros em pontos críticos",
+    "intencao": "identificar_recorrencias",
+    "entidades": [],
+    "exige_confirmacao": false,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  },
+  {
+    "id": "enu_0060",
+    "persona": "coordenador_operacoes",
+    "transcricao_bruta": "determinar envio de equipe de conserva para tapa buraco no km trinta",
+    "texto_normalizado": "registrar direcionamento envio equipe de conservação km 30.0",
+    "intencao": "registrar_direcionamento",
+    "entidades": [
+      {
+        "tipo": "km",
+        "valor": 30.0,
+        "span": [
+          56,
+          60
+        ]
+      },
+      {
+        "tipo": "recurso",
+        "valor": "equipe_conserva",
+        "span": [
+          31,
+          52
+        ]
+      }
+    ],
+    "exige_confirmacao": true,
+    "anotadores": [
+      "a1",
+      "a2"
+    ],
+    "concordancia": 1.0
+  }
+]
