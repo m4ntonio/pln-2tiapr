@@ -1,7 +1,24 @@
-Mario Antonio Oliveira (RM: 567713)
-Vinicius Augusto Silva (RM: 566830)
-Turma: 2TIAPR
+================================================================================
+Sprint 1 — Fundamentar: a linguagem da operação rodoviária
 Disciplina: Processamento de Linguagem Natural, Chatbots & Agentes Virtuais
-Atividade: Sprint 1 — Fundamentar: a linguagem da operação rodoviária (Challenge Motiva)
-Instituição: FIAP
+Turma: 2TIAPR
+================================================================================
 
+INTEGRANTES DO GRUPO:
+
+1. Leonardo Melo ---------------------- RM: 567097
+2. Luna Rousseau Nogueira de Oliveira - RM: 564215
+3. Mario Antonio Oliveira ------------- RM: 567713
+4. Vinicius Augusto Silva ------------- RM: 566830
+
+================================================================================
+ARQUIVOS ENTREGUES NESTE PACOTE COMPACTADO:
+
+- corpus_enunciacoes.json
+- DECISOES_DESIGN.md
+- glossario_rodoviario.json
+- integrantes.txt
+- sprint1_pln_motiva.ipynb
+- taxonomia_intencoes.json
+- USO_DE_IA.md
+================================================================================

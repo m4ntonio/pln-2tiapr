@@ -3,6 +3,8 @@
 **Projeto:** Agente de Voz Rodoviário para o Challenge Motiva  
 
 ## Integrantes do Grupo
+- **Leonardo Melo** (RM: 567097)
+- **Luna Rousseau Nogueira de Oliveira** (RM: 564215)
 - **Mario Antonio Oliveira** (RM: 567713)
 - **Vinicius Augusto Silva** (RM: 566830)
 

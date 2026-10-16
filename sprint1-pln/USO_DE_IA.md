@@ -4,8 +4,10 @@
 **Atividade:** Sprint 1 — Fundamentar: a linguagem da operação rodoviária  
 **Projeto:** Challenge Motiva / FIAP (2026/2027)  
 **Autores:**  
-- Mario Antonio Oliveira (RM: 567713)  
-- Vinicius Augusto Silva (RM: 566830)  
+- Leonardo Melo [RM: 567097]
+- Luna Rousseau Nogueira de Oliveira [RM: 564215]
+- Mario Antonio Oliveira [RM: 567713]  
+- Vinicius Augusto Silva [RM: 566830]  
 
 ---
 
