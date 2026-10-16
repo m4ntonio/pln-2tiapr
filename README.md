@@ -35,3 +35,4 @@ pln-2tiapr/
 - **Pipeline de Normalização Numérica:** Taxa de conversão de números e frações por extenso de **93.8%** (patamar exigido: $\ge 90\%$).
 - **Baseline de NLU:** Acurácia global de **85.0%** no classificador por palavras-chave com extração determinística por Regex.
 - **Contrato de Saída:** 100% dos 60 registros validados estritamente contra o JSON Schema oficial.
+
